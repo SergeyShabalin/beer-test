@@ -1,0 +1,43 @@
+.content-info {
+    height: 115vh;
+    background: linear-gradient(rgba(239, 170, 19, 0.82), rgba(0, 0, 0, 0.8));
+    color: #ffffff;
+}
+
+.page {
+    display: flex;
+}
+
+.header-info {
+    color: rgba(10, 10, 59, 0.81);
+    font-family: "Book Antiqua";
+    text-align: center;
+    padding: 1%;
+    font-size: 75px;
+}
+
+.back-to{
+    color: rgba(34, 34, 59, 0.81);
+    cursor: pointer;
+    padding-left: 3%;
+    transition: all 0.3s ease-in-out;
+}
+
+.back-to:hover{
+    transform: scale(1.02);
+    padding-left: 4%;
+}
+
+.info-field {
+    font-size: 35px;
+}
+
+.info {
+padding: 6%;
+}
+
+.img-field {
+    padding-right: 3%;
+    height: 90%;
+    transform: scale(0.8);
+}

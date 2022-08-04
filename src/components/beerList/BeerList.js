@@ -1,43 +1,49 @@
-import {Api} from '../Api'
-import React,{useEffect,useState} from 'react'
+import React, {useEffect, useState} from 'react'
+import {Api} from '../../Api'
+import {BeerCard} from "./beerCard/BeerCard";
+import './styles/BeerList.css'
+import Search from "../search/Serach";
+import Pagination from "../pagination/Pagination";
 
 
-export default function Main() {
-
-    const url = 'beers'
-
+export default function BeerList() {
+    const [listBeer, setListBeer] = useState([])
+    const [params, setParams] = useState()
 
     useEffect(() => {
-        viewList(url)
+        viewList()
+          },[params]);
 
-    }, []);
 
-    const [listBeer, setListBeer]=useState([])
 
-    function viewList(url) {
-        Api.get(url).then((resp) => {
-                setListBeer(resp.data)
-            console.log(resp.data)
+
+    function viewList(data) {
+
+        console.log(params)
+        Api.get('/beers', {params}).then((resp) => {
+            setListBeer(resp.data)
         }).catch((error) => {
             console.warn(error, 'server error');
         })
     }
 
-    function listView(){
-     let a = listBeer.map(item=> (
-
-         <div>
-             <div>{item.name}</div>
-             <img src = {item.image_url}></img>
-         </div>
-     ))
-        return a
-    }
-
     return (
-        <div>
-            {listView()}
-            <button>beer</button>
+        <div className='content'>
+            <div>
+                <Search
+                    viewList={viewList}
+                    setParams={setParams}
+                />
+                <div className='background-label'>BEER</div>
+                <Pagination
+                    viewList={viewList}
+                    setParams={setParams}
+                />
+                <BeerCard
+                    listBeer={listBeer}
+                />
+
+            </div>
         </div>
     )
 }

@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import BeerList from "./components/beerList/BeerList";
+import BeerInfo from "./components/beerList/beerInfo/BeerInfo";
+import {Routes, Route} from 'react-router-dom'
+
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+
+            <div className='App'>
+
+                <Routes>
+                    <Route path="/" element={<BeerList/>}/>
+                    <Route path="/:id" element={<BeerInfo/>}/>
+                    <Route path="*" element={<BeerList/>}/>
+                </Routes>
+
+            </div>
+        </div>
+    )
 }
 
 export default App;
