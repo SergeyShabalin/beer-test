@@ -12,9 +12,7 @@ export default function BeerList() {
 
     useEffect(() => {
         viewList()
-          },[params]);
-
-
+    }, [params]);
 
 
     function viewList(data) {
@@ -35,14 +33,12 @@ export default function BeerList() {
                     setParams={setParams}
                 />
                 <div className='background-label'>BEER</div>
-                <Pagination
-                    viewList={viewList}
-                    setParams={setParams}
-                />
                 <BeerCard
                     listBeer={listBeer}
                 />
-
+                <Pagination
+                    viewList={viewList}
+                    setParams={setParams}/>
             </div>
         </div>
     )

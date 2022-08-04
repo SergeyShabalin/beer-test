@@ -4,18 +4,26 @@ import {Api} from "../../Api";
 
 export default function Pagination({setParams, viewList}) {
 
-function set(data){
-    setParams(data)
-   }
+    const page = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    function set(data) {
+        setParams(data)
+    }
+
+    function viewPagination() {
+        let iconPage = page.map(item => {
+            return (
+                <div className='pgb' onClick={() => set({page: item, per_page: 25})}>{item}</div>
+            )
+        })
+        return iconPage
+    }
+
 
     return (
         <>
             <div className='Pagination'>
-                <div className='pgb' onClick={() => set({page:1, per_page: 25})}>1</div>
-                <div className='pgb' onClick={() => set({page:2, per_page: 25})}>2< /div>
-                <div className='pgb' onClick={() => set({page:3, per_page: 25})}>3</div>
-                <div className='pgb' onClick={() => set({page:4, per_page: 25})}>4</div>
-                <div className='pgb' onClick={() => set({page:5, per_page: 25})}>5</div>
+                {viewPagination()}
             </div>
         </>
 
