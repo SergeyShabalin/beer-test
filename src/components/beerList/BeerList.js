@@ -15,8 +15,7 @@ export default function BeerList() {
     }, [params]);
 
 
-    function viewList(data) {
-
+    function viewList() {
         console.log(params)
         Api.get('/beers', {params}).then((resp) => {
             setListBeer(resp.data)
@@ -31,6 +30,7 @@ export default function BeerList() {
                 <Search
                     viewList={viewList}
                     setParams={setParams}
+                    params={params}
                 />
                 <div className='background-label'>BEER</div>
                 <BeerCard
@@ -38,7 +38,9 @@ export default function BeerList() {
                 />
                 <Pagination
                     viewList={viewList}
-                    setParams={setParams}/>
+                    setParams={setParams}
+                    params={params}
+                />
             </div>
         </div>
     )
