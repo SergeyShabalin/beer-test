@@ -8,7 +8,7 @@ import Pagination from "../pagination/Pagination";
 
 export default function BeerList() {
     const [listBeer, setListBeer] = useState([])
-    const [params, setParams] = useState()
+    const [params, setParams] = useState({page:1})
 
     useEffect(() => {
         viewList()
@@ -39,7 +39,8 @@ export default function BeerList() {
                 <Pagination
                     viewList={viewList}
                     setParams={setParams}
-                    params={params}
+                    page={params.page}
+                    lenghtListBeer={listBeer.length}
                 />
             </div>
         </div>

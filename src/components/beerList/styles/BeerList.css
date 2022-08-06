@@ -1,8 +1,11 @@
 .content {
     display: flex;
     padding: 5%;
-    background-color: black;
+    background-color: #000000;
     text-align: center;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 

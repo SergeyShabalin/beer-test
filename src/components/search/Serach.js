@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './styles/Serach.css'
 
-export default function Search({setParams, params}) {
+export default function Search({setParams}) {
 
     const [searchData, setSearchData] = useState('')
 
@@ -10,7 +10,7 @@ export default function Search({setParams, params}) {
     }
 
     function applySearch() {
-        setParams({beer_name: searchData, ...params})
+        setParams((prev) => ({...prev, beer_name: searchData, page:1}))
     }
 
 

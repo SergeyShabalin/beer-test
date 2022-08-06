@@ -18,7 +18,7 @@ export function BeerCard({listBeer}) {
                         {item.description.length > 140
                             ? <div className='about'>  {item.description.slice(0, 140)} ... </div>
                             : <div className='about'>{item.description}</div>
-                            // убрать мутации
+
                         }
                     </div>
                 </div>
